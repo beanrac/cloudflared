@@ -11,6 +11,7 @@ import (
 	"github.com/rs/zerolog"
 
 	"github.com/cloudflare/cloudflared/management"
+    "github.com/cloudflare/cloudflared/mydns"
 )
 
 const (
@@ -30,8 +31,8 @@ const (
 
 // Redeclare network functions so they can be overridden in tests.
 var (
-	netLookupSRV = net.LookupSRV
-	netLookupIP  = net.LookupIP
+	netLookupSRV = mydns.LookupSRV
+	netLookupIP  = mydns.LookupIP
 )
 
 // ConfigIPVersion is the selection of IP versions from config

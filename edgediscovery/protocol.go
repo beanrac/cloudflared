@@ -3,8 +3,8 @@ package edgediscovery
 import (
 	"encoding/json"
 	"fmt"
-	"net"
 	"strings"
+    "github.com/cloudflare/cloudflared/mydns"
 )
 
 const (
@@ -38,7 +38,7 @@ func (p ProtocolPercents) GetPercentage(protocol string) int32 {
 
 // ProtocolPercentage returns the ratio of protocols and a specification ratio for their selection.
 func ProtocolPercentage() (ProtocolPercents, error) {
-	records, err := net.LookupTXT(protocolRecord)
+	records, err := mydns.LookupTXT(protocolRecord)
 	if err != nil {
 		return nil, err
 	}

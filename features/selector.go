@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"github.com/rs/zerolog"
+    "github.com/cloudflare/cloudflared/mydns"
 )
 
 const (
@@ -171,7 +172,7 @@ type dnsResolver struct {
 
 func newDNSResolver() *dnsResolver {
 	return &dnsResolver{
-		resolver: net.DefaultResolver,
+		resolver: mydns.CustomResolver,
 	}
 }
 
